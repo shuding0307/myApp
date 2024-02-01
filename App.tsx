@@ -18,9 +18,11 @@ export default function App() {
       <View style={styles.Box}>
         <Text style={styles.title}>My Counter</Text>
       </View>
+
       <View style={styles.Box}>
         <Text style={styles.count}>{count}</Text>
       </View>
+
       <View style={styles.buttonBox}>
         <TouchableOpacity style={styles.buttonMinus} onPress={handlebuttonMinus} disabled={count <= 0}> 
           <Text style={styles.buttonText}>-</Text>
@@ -29,6 +31,7 @@ export default function App() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
+      
     </View>
   );
 }
