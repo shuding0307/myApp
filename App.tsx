@@ -1,88 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { config } from '@gluestack-ui/config';
+import { GluestackUIProvider, Center } from '@gluestack-ui/themed';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import WebToonSwiper from './components/Header/WebtoonSwiper';
+import { Dimensions } from 'react-native';
+
+const queryClient = new QueryClient();
 
 export default function App() {
-  const [count, setCount] = useState(0);
-
-  const handlebuttonMinus = () => {
-    setCount(count-1);
-  };
-
-  const handlebuttonPlus = () => {
-    setCount(count+1);
-  };
-
   return (
-    <View style={styles.container}>
-      <View style={styles.Box}>
-        <Text style={styles.title}>My Counter</Text>
-      </View>
-
-      <View style={styles.Box}>
-        <Text style={styles.count}>{count}</Text>
-      </View>
-
-      <View style={styles.buttonBox}>
-        <TouchableOpacity style={styles.buttonMinus} onPress={handlebuttonMinus} disabled={count <= 0}> 
-          <Text style={styles.buttonText}>-</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonPlus} onPress={handlebuttonPlus} disabled={count >= 22}>
-          <Text style={styles.buttonText}>+</Text>
-        </TouchableOpacity>
-      </View>
-      
-    </View>
+    //React Query를 사용하기 위해 사용하고자 하는 컴포넌트를 QueryClientProvider로 감싸고 QueryClient값을 Props로 넣어줌
+    <QueryClientProvider client={queryClient}>
+    <GluestackUIProvider config={config}>
+      <Center bg='$black' flex={1} justifyContent='center' alignItems='center'>
+        <Center width={Dimensions.get('window').width} height={350}>
+          <WebToonSwiper />
+        </Center>
+      </Center>
+    </GluestackUIProvider>
+  </QueryClientProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F7F3ED',
-  },
-  Box: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    color: '#46373B',
-    fontSize: 50,
-    fontWeight: 'bold',
-  },
-  count: {
-    flex: 1,
-    color: '#725960',
-    fontSize: 150,
-    marginTop: 30
-  },
-  buttonBox: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    marginBottom: 30
-  },
-  buttonMinus: {
-    backgroundColor: '#155B92',
-    borderRadius: 50,
-    width: 70,
-    height: 70,
-  },
-  buttonPlus: {
-    backgroundColor: '#CC4635',
-    borderRadius: 50,
-    width: 70,
-    height: 70,
-  },
-  buttonText:{
-    color: 'white',
-    fontSize: 50,
-    alignSelf: 'center',
-    fontWeight: '500',
-    paddingTop: 3
-
-  }
-  
-});
