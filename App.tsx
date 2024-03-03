@@ -11,6 +11,8 @@ import ScreenThree from './screens/ScreenThree';
 import { ScreensParams } from './types';
 import WebtoonList from './components/List/WebtoonList';
 import HomeScreen from './screens/HomeScreen';
+import CounterScreen from './screens/CounterScreen';
+
 
 const queryClient = new QueryClient();
 const Stack = createStackNavigator<ScreensParams>();
@@ -24,8 +26,8 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
-              name='ScreenOne'
-              component={ScreenOne}
+              name='Counter'
+              component={CounterScreen}
               options={{ header: () => null }}
             />
             <Stack.Screen

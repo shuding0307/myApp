@@ -7,6 +7,8 @@ export interface Webtoon {
   }
 
   export type ScreensParams = {
+    Counter: undefined;
+
     ScreenOne: undefined;
     ScreenTwo: undefined;
     ScreenThree: undefined;
