@@ -16,6 +16,7 @@ export interface Webtoon {
   export type ScreensParams = {
     Main: undefined;
     Search: undefined;
+    Detail: undefined;
   };
   
   export interface WebtoonResponse {

@@ -1,26 +1,18 @@
 import {
-    Button,
-    ButtonText,
-    HStack,
-    Input,
-    InputField,
-    ScrollView,
-    Text,
-    VStack,
-  } from '@gluestack-ui/themed';
-  import { CounterScreensParams, WebtoonResponse } from '../types';
+    Button, ButtonText, HStack, Input, InputField, ScrollView, Text, VStack,} from '@gluestack-ui/themed';
+  import { ScreensParams, WebtoonResponse } from '../types';
   import { NavigationProp, useNavigation } from '@react-navigation/native';
   import { useState } from 'react';
   import { useQuery } from '@tanstack/react-query';
   import MediumCard from '../components/Card/MediumCard';
-
+  
   const fetchWebtoons = async (keyword: string) => {
     const res = await fetch(`https://korea-webtoon-api.herokuapp.com/search?keyword=${keyword}`);
     return res.json();
   };
 
   export default function SearchScreen() {
-    const navigation = useNavigation<NavigationProp<CounterScreensParams>>();
+    const navigation = useNavigation<NavigationProp<ScreensParams>>();
     const [inputText, setInputText] = useState('');
     const [keyword, setKeyword] = useState('');
   
@@ -42,14 +34,13 @@ import {
               onEndEditing={() => setKeyword(inputText)}
             />
           </Input>
-          <Button
-            size='md'
-            variant='solid'
-            action='secondary'
-            isDisabled={false}
-            isFocusVisible={false}
-            onPress={() => navigation.goBack()}
-          >
+          <Button 
+           size='md'
+           variant='solid'
+           action='secondary'
+           isDisabled={false}
+           isFocusVisible={false}
+          onPress={()=>navigation.navigate('Main')}>
             <ButtonText>취소</ButtonText>
           </Button>
         </HStack>
