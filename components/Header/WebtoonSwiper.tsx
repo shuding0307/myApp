@@ -1,8 +1,7 @@
 import Swiper from 'react-native-swiper';
-import { Dimensions } from 'react-native';
 import { Box } from '@gluestack-ui/themed';
 import { useQuery } from '@tanstack/react-query';
-import { Webtoon, WebtoonResponse } from '../../types';
+import { WebtoonResponse } from '../../types';
 import LargeCard from '../Card/LargeCard';
 
 const fetchWebtoons = async () => {
