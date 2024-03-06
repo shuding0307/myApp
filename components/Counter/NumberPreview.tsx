@@ -7,12 +7,12 @@ interface Props {
 
 export default function NumberPreview({count, inputNumber}:Props) {
   return (
-    <HStack gap={50}>
-      <Text size='6xl' bold={true} color='$orange700'>
-        {count-inputNumber}
+    <HStack gap={80}>
+      <Text size='4xl' bold={true} color='#876972'>
+        {inputNumber ? count-inputNumber : ''}
       </Text>
-      <Text size='6xl' bold={true} color='$orange700'>
-        {count+inputNumber}
+      <Text size='4xl' bold={true} color='#876972'>
+        {inputNumber ? count+inputNumber : ' '}
       </Text>
     </HStack>
 

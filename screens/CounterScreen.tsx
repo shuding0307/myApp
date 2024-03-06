@@ -37,15 +37,15 @@ export default function CounterScreen() {
     };
 
 return (
-    <Center width='$full' height='$full' bg='$blue300' gap={100}>
-        <Text size='4xl' bold={true}> 
-        This is My Counter 
+    <Center width='$full' height='$full' bg='#DCD3D8' gap={100}>
+        <Text size='4xl' bold={true} color='#46373B'> 
+        Upgrade Counter 
         </Text>
-        <Text size='6xl' bold={true} color='$orange700'>
+        <Text size='6xl' bold={true} color='#2C5E9E'>
         {count}
         </Text>
     <VStack gap={30} alignItems='center'>
-        <Input variant='outline' size='md' width={150}>
+        <Input variant='outline' size='md' width={150} borderColor='#46373B'>
             <InputField
             value={`${inputNumber ? inputNumber : ''}`}
             textAlign='right'
