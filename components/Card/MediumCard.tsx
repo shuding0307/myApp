@@ -12,7 +12,6 @@ export default function MediumCard ({ webtoon }: MediumCardProps) {
     return (
         <Pressable 
         borderWidth='$1' 
-        borderBlockColor='$rose300' 
         flexDirection='row' 
         onPress={()=>navigation.navigate('Detail', {webtoon})}>
         <Image 

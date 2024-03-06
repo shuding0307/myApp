@@ -35,9 +35,11 @@ import {
             />
           </Input>
           <Button 
-          size='md' 
-          action='secondary' 
-          bg='$rose500' 
+           size='md'
+           variant='solid'
+           action='secondary'
+           isDisabled={false}
+           isFocusVisible={false}
           onPress={()=>navigation.navigate('Main')}>
             <ButtonText>취소</ButtonText>
           </Button>

@@ -6,8 +6,8 @@ export default function MyScreen() {
   const navigation = useNavigation<NavigationProp<CounterScreensParams>>();
 
   return (
-    <Center width='$full' height='$full' bg='$red300' gap={10}>
-      <Text>My Screen</Text>
+    <Center width='$full' height='$full' bg='$backgroundDark900' gap={10}>
+      <Text color='$white'>My Screen</Text>
     </Center>
   );
 }

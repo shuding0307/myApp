@@ -1,9 +1,8 @@
-import { Button, Center, HStack, Icon, StarIcon, Text, VStack } from '@gluestack-ui/themed';
+import { HStack, Icon, StarIcon, Text, VStack } from '@gluestack-ui/themed';
 import { Image } from 'expo-image';
-import { NavigationProp, RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute } from '@react-navigation/native';
 import { ScreensParams } from '../types';
 
-//타입 지정
 type DetailScreenRouteProp= RouteProp<ScreensParams, 'Detail'>
 
 export default function WebtoonDetail() {
@@ -11,7 +10,7 @@ export default function WebtoonDetail() {
   const webtoon= route.params.webtoon;
 
   return (
-    <VStack width='$full' height='$full' bg='$red300'>
+    <VStack width='$full' height='$full' bg='$backgroundDark900'>
       <Image
         style={{width: '100%', height:300, marginBottom:20}}
         source={webtoon.img}
