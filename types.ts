@@ -3,4 +3,13 @@ export interface Webtoon {
     title: string;
     img: string;
     author: string;
+    fanCount: number;
   }
+
+  export type ScreensParams = {
+    Counter: undefined;
+
+    ScreenOne: undefined;
+    ScreenTwo: undefined;
+    ScreenThree: undefined;
+  };

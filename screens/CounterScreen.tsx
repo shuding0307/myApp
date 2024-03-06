@@ -1,0 +1,67 @@
+import {
+    AddIcon,
+    Button,
+    ButtonIcon,
+    Center,
+    HStack,
+    Input,
+    InputField,
+    RemoveIcon,
+    Text,
+    VStack,
+} from '@gluestack-ui/themed';
+import { useState } from 'react';
+import NumberBoard from '../components/Counter/NumberBoard';
+import NumberInput from '../components/Counter/NumberInput';
+import NumberPreview from '../components/Counter/NumberPreview';
+
+export default function CounterScreen() {
+    const [count, setCount] = useState(0);
+    const [inputNumber, setInputNumber] = useState(0);
+
+    const handleAdd = () => {
+        setCount(count + inputNumber);
+        setInputNumber(0);
+    };
+
+    const handleMinus = () => {
+        setCount(count - inputNumber);
+        setInputNumber(0);
+    }
+
+    const handleChangeInputNumber = (inputStr: string) => {
+        const inputNumber = Number(inputStr);
+        if (inputNumber) {
+            setInputNumber(inputNumber);
+        }
+    };
+
+return (
+    <Center width='$full' height='$full' bg='#DCD3D8' gap={100}>
+        <Text size='4xl' bold={true} color='#46373B'> 
+        Upgrade Counter 
+        </Text>
+        <Text size='6xl' bold={true} color='#2C5E9E'>
+        {count}
+        </Text>
+    <VStack gap={30} alignItems='center'>
+        <Input variant='outline' size='md' width={150} borderColor='#46373B'>
+            <InputField
+            value={`${inputNumber ? inputNumber : ''}`}
+            textAlign='right'
+            onChangeText={handleChangeInputNumber}
+            />
+        </Input>
+            <HStack justifyContent='center' gap={30}>
+                <Button size='xl' action='negative' onPress={handleMinus}>
+                <ButtonIcon size='xl' as={RemoveIcon} />
+                </Button>
+                <Button size='xl' action='positive' onPress={handleAdd}>
+                <ButtonIcon size='xl' as={AddIcon} />
+                </Button>
+            </HStack>
+            <NumberPreview count={count} inputNumber={inputNumber}/>
+    </VStack>
+</Center>
+    );
+};
